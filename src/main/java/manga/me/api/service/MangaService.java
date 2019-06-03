@@ -21,8 +21,9 @@ public class MangaService {
     private MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "test"));
 
     //Create
-    public Manga create(String russianTitle, String englishTitle, String author, String description, Status status) {
-        return mangaRepository.save(new Manga(russianTitle, englishTitle, author, description, status));
+    public Manga create(String russianTitle, String englishTitle, String author, String description, Status status,
+                        String imgFileName) {
+        return mangaRepository.save(new Manga(russianTitle, englishTitle, author, description, status, imgFileName));
     }
 
     //Retrieve
@@ -31,7 +32,8 @@ public class MangaService {
     public Manga getByRussianTitle(String russianTitle) { return mangaRepository.findByRussianTitle(russianTitle); }
 
     //Update
-    public Manga update(String id, String russianTitle, String englishTitle, String author, String description, Status status) {
+    public Manga update(String id, String russianTitle, String englishTitle, String author, String description, Status status,
+                        String imgFileName) {
         Manga manga = mongoOps.findById(id, Manga.class);
 
         manga.setRussianTitle(russianTitle);
@@ -39,6 +41,7 @@ public class MangaService {
         manga.setAuthor(author);
         manga.setDescription(description);
         manga.setStatus(status);
+        manga.setImgFileName(imgFileName);
 
         return mangaRepository.save(manga);
     }
