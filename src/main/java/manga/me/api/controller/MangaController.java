@@ -74,6 +74,9 @@ public class MangaController {
         return manga.toString();
     }
 
+    @RequestMapping("/{link}")
+    public Manga getByLink(@PathVariable String link) {return mangaService.getByLink(link);}
+
 //    @RequestMapping("/update")
 //    public String update(@RequestParam String id, @RequestParam String russianTitle,
 //                         @RequestParam String englishTitle,

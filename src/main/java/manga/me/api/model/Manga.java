@@ -15,17 +15,19 @@ public class Manga {
     private String description;
     private Status status;
     private String imgFileName;
+    private String link;
 
     public Manga() {
     }
 
-    public Manga(String russianTitle, String englishTitle, String author, String description, Status status, String imgFileName) {
+    public Manga(String russianTitle, String englishTitle, String author, String description, Status status, String imgFileName, String link) {
         this.russianTitle = russianTitle;
         this.englishTitle = englishTitle;
         this.author = author;
         this.description = description;
         this.status = status;
         this.imgFileName = imgFileName;
+        this.link = link;
     }
 
     public String getRussianTitle() {
@@ -76,6 +78,14 @@ public class Manga {
         this.imgFileName = imgFileName;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     @Override
     public String toString() {
         return "Manga{" +
@@ -86,6 +96,7 @@ public class Manga {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", imgFileName='" + imgFileName + '\'' +
+                ", link='" + link + '\'' +
                 '}';
     }
 }

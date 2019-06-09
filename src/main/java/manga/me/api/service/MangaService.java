@@ -20,16 +20,28 @@ public class MangaService {
 
     private MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "test"));
 
+    private String engToLink (String _eng) {
+
+        String link = _eng.replaceAll(" ", "_").toLowerCase();
+
+        return link;
+    }
+
     //Create
     public Manga create(String russianTitle, String englishTitle, String author, String description, Status status,
                         String imgFileName) {
-        return mangaRepository.save(new Manga(russianTitle, englishTitle, author, description, status, imgFileName));
+
+
+
+        return mangaRepository.save(new Manga(russianTitle, englishTitle, author, description, status, imgFileName,
+                engToLink(englishTitle)));
     }
 
     //Retrieve
     public List<Manga> getAll() { return mangaRepository.findAll(); }
     public List<Manga> getByAthor(String author) { return mangaRepository.findByAuthor(author); }
     public Manga getByRussianTitle(String russianTitle) { return mangaRepository.findByRussianTitle(russianTitle); }
+    public Manga getByLink(String link) {return mangaRepository.findByLink(link);}
 
     //Update
     public Manga update(String id, String russianTitle, String englishTitle, String author, String description, Status status,
@@ -42,6 +54,7 @@ public class MangaService {
         manga.setDescription(description);
         manga.setStatus(status);
         manga.setImgFileName(imgFileName);
+        manga.setLink(engToLink(englishTitle));
 
         return mangaRepository.save(manga);
     }
