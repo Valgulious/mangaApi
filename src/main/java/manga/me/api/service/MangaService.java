@@ -18,7 +18,7 @@ public class MangaService {
     @Autowired
     private MangaRepository mangaRepository;
 
-    private MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "test"));
+    private MongoOperations mongoOps = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), "mangaReader"));
 
     private String engToLink (String _eng) {
 
@@ -30,8 +30,6 @@ public class MangaService {
     //Create
     public Manga create(String russianTitle, String englishTitle, String author, String description, Status status,
                         String imgFileName) {
-
-
 
         return mangaRepository.save(new Manga(russianTitle, englishTitle, author, description, status, imgFileName,
                 engToLink(englishTitle)));
