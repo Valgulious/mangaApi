@@ -86,6 +86,10 @@ public class Manga {
         this.link = link;
     }
 
+    public boolean isValid() {
+        return id != null && id.isEmpty();
+    }
+
     @Override
     public String toString() {
         return "Manga{" +

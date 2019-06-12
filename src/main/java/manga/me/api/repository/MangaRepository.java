@@ -11,5 +11,6 @@ public interface MangaRepository extends MongoRepository<Manga, String> {
 
     public List<Manga> findByAuthor (String author);
     public Manga findByRussianTitle (String russianTitle);
+    public Manga findByEnglishTitle (String englishTitle);
     public Manga findByLink (String link);
 }

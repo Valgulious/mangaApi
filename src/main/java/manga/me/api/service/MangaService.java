@@ -41,6 +41,7 @@ public class MangaService {
     public List<Manga> getAll() { return mangaRepository.findAll(); }
     public List<Manga> getByAthor(String author) { return mangaRepository.findByAuthor(author); }
     public Manga getByRussianTitle(String russianTitle) { return mangaRepository.findByRussianTitle(russianTitle); }
+    public Manga getByEnglishTitle (String englishTitle) { return mangaRepository.findByEnglishTitle(englishTitle); }
     public Manga getByLink(String link) {return mangaRepository.findByLink(link);}
 
     //Update

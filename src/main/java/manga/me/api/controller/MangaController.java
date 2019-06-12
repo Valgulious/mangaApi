@@ -67,11 +67,18 @@ public class MangaController {
     @RequestMapping("/getAll")
     public List<Manga> getAll() { return mangaService.getAll(); }
 
-    @RequestMapping("/getByRussianTitle")
-    public String getByRussianTitle(@RequestParam String russianTitle) {
+    @RequestMapping("/standByRussianTitle")
+    public boolean getByRussianTitle(@RequestParam String russianTitle) {
         Manga manga = mangaService.getByRussianTitle(russianTitle);
 
-        return manga.toString();
+        return manga != null;
+    }
+
+    @RequestMapping("/standByEnglishTitle")
+    public boolean getByEnglishTitle(@RequestParam String englishTitle) {
+        Manga manga = mangaService.getByEnglishTitle(englishTitle);
+
+        return manga != null;
     }
 
     @RequestMapping("/{link}")
