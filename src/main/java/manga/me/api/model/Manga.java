@@ -14,16 +14,20 @@ public class Manga {
     private String author;
     private String description;
     private Status status;
+    private String imgFileName;
+    private String link;
 
     public Manga() {
     }
 
-    public Manga(String russianTitle, String englishTitle, String author, String description, Status status) {
+    public Manga(String russianTitle, String englishTitle, String author, String description, Status status, String imgFileName, String link) {
         this.russianTitle = russianTitle;
         this.englishTitle = englishTitle;
         this.author = author;
         this.description = description;
         this.status = status;
+        this.imgFileName = imgFileName;
+        this.link = link;
     }
 
     public String getRussianTitle() {
@@ -66,6 +70,26 @@ public class Manga {
         this.status = status;
     }
 
+    public String getImgFileName() {
+        return imgFileName;
+    }
+
+    public void setImgFileName(String imgFileName) {
+        this.imgFileName = imgFileName;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public boolean isValid() {
+        return id != null && id.isEmpty();
+    }
+
     @Override
     public String toString() {
         return "Manga{" +
@@ -74,7 +98,9 @@ public class Manga {
                 ", englishTitle='" + englishTitle + '\'' +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
+                ", status=" + status +
+                ", imgFileName='" + imgFileName + '\'' +
+                ", link='" + link + '\'' +
                 '}';
     }
 }
