@@ -75,6 +75,14 @@ public class VolumeController {
 
     }
 
+    @RequestMapping("/{mangaLink}/{volumeNumber}")
+    public Volume getByMangaLinkAndNumber (@PathVariable String mangaLink, @PathVariable String volumeNumber) {
+
+        Volume volume = volumeService.getByMangaLinkAndNumber(mangaLink, Integer.parseInt(volumeNumber));
+
+        return volume != null ? volume : new Volume();
+    }
+
     @RequestMapping("/standByNumber")
     public boolean standByNumber (@RequestParam String mangaLink, @RequestParam String number) {
         Volume volume = volumeService.getByMangaLinkAndNumber(mangaLink, Integer.parseInt(number));

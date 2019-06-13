@@ -15,6 +15,9 @@ public class Volume {
     private int number;
     private List<String> images;
 
+    public Volume() {
+    }
+
     public Volume(String mangaLink, int number, List<String> images) {
         this.mangaLink = mangaLink;
         this.number = number;
