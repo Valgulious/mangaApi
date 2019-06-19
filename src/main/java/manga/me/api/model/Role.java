@@ -3,7 +3,7 @@ package manga.me.api.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "roles")
+@Document
 public class Role {
 
     @Id
